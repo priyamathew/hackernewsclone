@@ -1,0 +1,12 @@
+<h1><%= @post.title %></h1>
+<p>Posted by <%= @post.user.username %> | Created at : <%= @post.created_at %></pre></p>
+
+
+<h2>Comments</h2>
+<ol>
+<% @comments.each do |comment| %>
+  <li><a href="/user?id=<%= comment.user.id %>"><%= comment.user.username %></a> <%= comment.created_at %>
+    <p><%= comment.text %></p>
+  </li>
+<% end %>
+</ol>

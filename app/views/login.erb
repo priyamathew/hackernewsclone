@@ -1,0 +1,30 @@
+
+
+<div class="container">
+<form action="/login" method="post">
+  <label for="username">Username: </label>
+  <input type="text" id="username" name="user[username]" placeholder="username">
+  <label for="password">Password: </label>
+  <input type="password" id="password" name="user[password]" placeholder="password">
+  <input type="submit" value="Submit">
+</form>
+</div>
+
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <%= error %>
+  <% end %>
+<% end %>
+
+<div class="container">
+<form action="/signup" method="post">
+  <label for="username">Username: </label>
+  <input type="text" id="username" name="user[username]" placeholder="username">
+  <label for="password">Password: </label>
+  <input type="password" id="password" name="user[password]" placeholder="password">
+  <label for="password_confirmation">Password confirmation: </label>
+  <input type="password" id="password_confirmation" name="user[password_confirmation]" placeholder="confirm password">
+  <input type="submit" value="Submit">
+</form>
+</div>
+

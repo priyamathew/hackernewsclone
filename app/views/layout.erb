@@ -18,6 +18,23 @@
   <title></title>
 </head>
 <body>
-  <%= yield %>
+  <nav>
+    <a href="/">HackerNews</a> |
+    <a href="/new">New</a> |
+    <a href="/comments">Comments</a> |
+    <a href="/post/new">Submit</a> |
+
+    <% if current_user %>
+      <a href="/logout">Logout</a>  
+    <% else %>
+      <a href="/login">Login</a>
+    <% end %>
+    
+  </nav>
+
+  <div class="container"> 
+
+    <%= yield %>
+  </div>
 </body>
 </html>
