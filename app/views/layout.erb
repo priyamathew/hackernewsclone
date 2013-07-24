@@ -18,21 +18,27 @@
   <title></title>
 </head>
 <body>
-  <nav>
+  
+
+  <div class="container"> 
+    <nav>
     <a href="/">HackerNews</a> |
     <a href="/new">New</a> |
     <a href="/comments">Comments</a> |
-    <a href="/post/new">Submit</a> |
-
+    <a href="/post/new">Submit</a> 
+    
+    <div class="loggedin">
     <% if current_user %>
+    
+      <a href="/user?id=<%= current_user.id %>">Hello <%= current_user.username %> | </a>  
       <a href="/logout">Logout</a>  
+    
     <% else %>
       <a href="/login">Login</a>
     <% end %>
+    </div>
     
   </nav>
-
-  <div class="container"> 
 
     <%= yield %>
   </div>

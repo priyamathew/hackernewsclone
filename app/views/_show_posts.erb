@@ -1,6 +1,6 @@
 <ol>
   <% @posts.each do |post| %>
-    <li><a href="<%= post.url %>"><%= post.title %></a>
+    <li><a href="<%= post.full_url %>"><%= post.title %></a>
       <p class="subtitle">by <a href="/user?id=<%= post.user.id %>"><%= post.user.username %></a> | 
         <a href="/item?id=<%= post.id %>"><%= post.comments.count %> comments</a></p>
     </li>

@@ -1,3 +1,17 @@
-<h1> Hello <%= @user.username  %></h1>
+<h1> <%= @user.username %>'s Profile Page</h1>
+<% if current_user.id == @user.id %>
+  <div class="basic-container">
+    <p>Update Profile</p>
+    <form action="/user/<%= current_user.id %>/update" method="post">
+      <input type="text" name="user[username]" placeholder="change username" value="<%= @user.username %>"><br>
+      <input type="password" name="user[password]" placeholder="change password"><br>
+      <input type="password" name="user[password_confirmation]" placeholder="confirm password"><br>
 
-<%= erb :_show_posts  %>
+      <input type="submit" value="Update Profile">
+    </form>
+  </div>
+<% end %>
+
+<a href="/user/<%= @user.id %>/posts">submissions</a><br>
+<a href="/user/<%= @user.id %>/comments">comments</a>
+

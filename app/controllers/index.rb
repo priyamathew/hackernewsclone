@@ -10,6 +10,13 @@ get '/user' do
   erb :profile
 end
 
+post '/user/:user_id/update' do
+  @user = User.find(params[:user_id])
+  @user.update_attributes(params[:user])
+  @user.save
+  redirect "/user?id=#{current_user.id}"
+end
+
 get '/item' do
   @post = Post.find(params[:id])
   @comments = @post.comments 
@@ -26,7 +33,7 @@ post '/login' do
   @user = User.find_by_username(params[:user][:username])
   if @user && @user.authenticate(params[:user][:password])
     session[:current_user] = @user.id
-    redirect "/user?id=#{@user.id}"
+    redirect "/"
   else
     redirect '/login'
   end
@@ -62,6 +69,22 @@ post '/new_post' do
   end
 end
 
+post '/post/:post_id/new_comment' do
+  @comment = current_user.comments.create!(text: params[:text], post_id: params[:post_id])
+  redirect "/item?id=#{ @comment.post.id }"
+end
+
+get '/user/:user_id/posts' do
+  @user = User.find(params[:user_id])
+  @posts = @user.posts
+  erb :posts
+end
+
+get '/user/:user_id/comments' do
+  @user = User.find(params[:user_id])
+  @comments = @user.comments
+  erb :comments
+end
 
 
 

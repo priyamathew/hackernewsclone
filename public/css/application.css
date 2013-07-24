@@ -1,13 +1,52 @@
 .container {
   margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  width: 900px;
+  /*padding: 0px 20px 20px 20px;*/
+  /*border: 1px dotted black;*/
 }
 th {
   text-align: left;
 }
 
 input {
-  margin: 10px 0px;
+  margin: 10px 0;
+}
+
+nav {
+  background-color: #ff6600;
+  padding: 10px;
+}
+
+a {
+  text-decoration: black;
+  color: black;
+  ;
+}
+
+nav > a:first-child {
+  font-weight: bold
+}
+
+textarea {
+  width: 502px;
+  height: 96px;
+}
+
+div.loggedin {
+  float: right;
+}
+
+div.basic-container {
+  background-color: #F3EEEE;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+div.basic-container form input {
+  border-radius: 5px;
+}
+
+.timestamps {
+  color: #333;
 }
