@@ -88,12 +88,14 @@ end
 
 get '/vote/comment/:comment_id' do
   @comment = Comment.find(params[:comment_id])
-  @vote_count_record = VoteCount.find_or_create_by_comment_id(params[:comment_id])
-  
+  @comment.comment_vote.increment!(:vote_count)
+  redirect "/item?id=#{ @comment.post.id }"
 end
 
-get '/post/comment/:post_id' do
+get '/vote/post/:post_id' do
   @post = Post.find(params[:post_id])
+  @post.post_vote.increment!(:vote_count)
+  redirect '/'
 end
 
 
