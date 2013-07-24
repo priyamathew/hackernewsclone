@@ -86,9 +86,15 @@ get '/user/:user_id/comments' do
   erb :comments
 end
 
+get '/vote/comment/:comment_id' do
+  @comment = Comment.find(params[:comment_id])
+  @vote_count_record = VoteCount.find_or_create_by_comment_id(params[:comment_id])
+  
+end
 
-
-
+get '/post/comment/:post_id' do
+  @post = Post.find(params[:post_id])
+end
 
 
 

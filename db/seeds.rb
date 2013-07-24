@@ -1,5 +1,5 @@
-priya = User.create(username:"pri1229", password: "123456", password_confirmation: "123456")
-brett = User.create(username:"beazler", password: "devbootcamp", password_confirmation: "devbootcamp")
+priya = User.create(username:"pri1229", password: "password", password_confirmation: "password")
+brett = User.create(username:"beazler", password: "password", password_confirmation: "password")
 
 priya.posts.create(title:"Getting enough sleep",url:"sleep.com")
 priya.posts.create(title:"Things to do in Chicago",url:"metromix.com")

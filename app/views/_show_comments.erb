@@ -3,7 +3,7 @@
 <div class="basic-container">
 <ol>
   <% @comments.each do |comment| %>
-    <li><a href="/post?id=<%= comment.post.id %>"><%= comment.post.title %></a><br/>
+    <li><a href="/vote/comment/<%= comment.id %>">(+1) </a><a href="/post?id=<%= comment.post.id %>"><%= comment.post.title %></a><br/>
       <%= comment.text %> <br/>
       <span class="timestamps"> posted at: <%= comment.created_at %></span></li>
   <% end %>
