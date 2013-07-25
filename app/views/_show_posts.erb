@@ -1,6 +1,11 @@
 <ol>
   <% @posts.each do |post| %>
-    <li><a href="/vote/post/<%= post.id %>">(+1) </a> points:<%= post.post_vote.vote_count %>  <a href="<%= post.full_url %>"><%= post.title %></a>
+
+    <li>
+      <form id="vote" action="/vote/post/<%= post.id %>" method="POST">
+        <input type="submit" value="+1" > 
+      </form>
+      <span id="points"> points:<%= post.post_vote.vote_count %> </span> <a href="<%= post.full_url %>"><%= post.title %></a>
       <p class="subtitle">by <a href="/user?id=<%= post.user.id %>"><%= post.user.username %></a> | 
         <a href="/item?id=<%= post.id %>"><%= post.comments.count %> comments</a></p>
     </li>

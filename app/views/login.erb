@@ -1,8 +1,8 @@
 
 
-<div class="basic-container">
+<div id="login" class="basic-container">
   <h2>Login</h2>
-  <form action="/login" method="post">
+  <form  action="/login" method="post">
     <label for="username">Username: </label><br>
     <input type="text" id="username" name="user[username]" placeholder="username"><br>
     <label for="password">Password: </label><br>
@@ -17,9 +17,9 @@
   <% end %>
 <% end %>
 
-<div class="basic-container">
+<div id="logout" class="basic-container">
   <h2>Create Account</h2>
-  <form action="/signup" method="post">
+  <form  action="/signup" method="post">
     <label for="username">Username: </label><br>
     <input type="text" id="username" name="user[username]" placeholder="username"><br>
     <label for="password">Password: </label><br>

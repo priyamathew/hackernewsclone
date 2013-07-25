@@ -1,0 +1,32 @@
+stuff to ajax
+
+- show/hide update user attributes (on profile page)
+
+- login button
+
+- add new post to dom (at top)
+- add new comment to dom (at bottom)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+refactor : 
+  Doesn't make sense to create a post vote and increment it
+  Need the points from the total votes
+
+  This should come from post.post_votes.count

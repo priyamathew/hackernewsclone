@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
     post_karma = posts.inject(0) { |total, post| total + post.post_vote.vote_count}
     comment_karma = comments.inject(0) { |total, comment| total + comment.comment_vote.vote_count}
 
+    total_karma = 0
     total_karma = post_karma + comment_karma
   end
 

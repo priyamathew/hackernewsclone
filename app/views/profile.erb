@@ -5,7 +5,7 @@
 <% if current_user.id == @user.id %>
   <div class="basic-container">
     <p>Update Profile</p>
-    <form action="/user/<%= current_user.id %>/update" method="post">
+    <form id="profile" action="/user/<%= current_user.id %>/update" method="post">
       <input type="text" name="user[username]" placeholder="change username" value="<%= @user.username %>"><br>
       <input type="password" name="user[password]" placeholder="change password"><br>
       <input type="password" name="user[password_confirmation]" placeholder="confirm password"><br>

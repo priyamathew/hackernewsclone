@@ -86,16 +86,32 @@ get '/user/:user_id/comments' do
   erb :comments
 end
 
-get '/vote/comment/:comment_id' do
+post '/vote/comment/:comment_id' do
   @comment = Comment.find(params[:comment_id])
   @comment.comment_vote.increment!(:vote_count)
-  redirect "/item?id=#{ @comment.post.id }"
+
+  @vote_count = @comment.comment_vote.vote_count
+
+  if request.xhr?
+    content_type :json
+    { :vote_count => @vote_count }.to_json
+  else
+    redirect "/item?id=#{ @comment.post.id }"
+  end
 end
 
-get '/vote/post/:post_id' do
+post '/vote/post/:post_id' do
   @post = Post.find(params[:post_id])
   @post.post_vote.increment!(:vote_count)
-  redirect '/'
+
+  @vote_count = @post.post_vote.vote_count
+
+  if request.xhr?
+    content_type :json
+    { :vote_count => @vote_count }.to_json
+  else
+    redirect '/'
+  end
 end
 
 
